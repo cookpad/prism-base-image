@@ -2,7 +2,7 @@ FROM public.ecr.aws/docker/library/golang:1.16-stretch AS ecr-login
 
 RUN go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
 
-FROM openjdk:11-jdk-stretch
+FROM public.ecr.aws/docker/library/openjdk:11-jdk-buster
 
 WORKDIR /app
 
