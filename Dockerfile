@@ -1,4 +1,4 @@
-FROM golang:1.12-stretch AS ecr-login
+FROM public.ecr.aws/docker/library/golang:1.16-stretch AS ecr-login
 
 RUN go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
 
