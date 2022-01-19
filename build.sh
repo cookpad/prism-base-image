@@ -1,12 +1,12 @@
 #!/bin/bash -eux
 
-VERSION=3.0.3
-OS=bullseye
+HADOOP_VERSION=3.0.3
+OS_VERSION=bullseye
 
-VERSION_TAG="${VERSION}-${OS}"
-REVISION_TAG="$(git rev-parse HEAD)"
+VERSION_TAG="$BASE_REPOS:${HADOOP_VERSION}-${OS_VERSION}"
+REVISION_TAG="$BASE_REPOS:$(git rev-parse HEAD)"
 
-docker build --build-arg "HADOOP_VERSION=$VERSION" --tag "$VERSION_TAG" --tag "$REVISION_TAG" --cache-from "$VERSION_TAG" .
+docker build --build-arg "HADOOP_VERSION=$HADOOP_VERSION" --tag "$VERSION_TAG" --tag "$REVISION_TAG" --cache-from "$VERSION_TAG" .
 
-docker push "$BASE_REPOS:$VERSION_TAG"
-docker push "$BASE_REPOS:$REVISION_TAG"
+docker push "$VERSION_TAG"
+docker push "$REVISION_TAG"
