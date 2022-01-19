@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/openjdk:11-jdk-buster
+FROM public.ecr.aws/docker/library/openjdk:11-jre-slim-bullseye
 
 WORKDIR /app
 
